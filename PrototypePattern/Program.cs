@@ -1,12 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace PrototypePattern
 {
     class Program
     {
         static void Main(string[] args)
         {
-            // initialization of the three sandwiches
-            Sandwich sandwich1 = new(10, new Internals()
+            var internals = new Internals()
             {
                 Lettuce = true,
                 Tomatoes = true,
@@ -14,11 +15,15 @@ namespace PrototypePattern
                 Ketchup = true,
                 Mustard = false,
                 ExtraMeat = false
-            });
+            };
+
+            // initialization of the three sandwiches
+            Sandwich sandwich1 = new( 10, internals);
+
             // example of what happens if you DON'T clone
-            Sandwich sandwich2 = sandwich1;
+            ISandwich sandwich2 = sandwich1;
             // example of what happens when you DO clone
-            Sandwich sandwich3 = sandwich1.Clone();
+            ISandwich sandwich3 = sandwich1.Clone();
 
             // display sandwich values before modification
             Console.WriteLine("Original values:");
@@ -43,21 +48,53 @@ namespace PrototypePattern
             DisplayValues(sandwich2);
             Console.WriteLine("sandwich #3:");
             DisplayValues(sandwich3);
+
+            ISandwich subSandwich = new SubSandwich(25, internals, "TESTBREAD");
+
+            var sandwichList = new List<ISandwich>() { sandwich1, sandwich2, sandwich3, subSandwich};
+            var clonedSandwichList = new List<ISandwich>();
+
+            foreach (var sandwich in sandwichList)
+                clonedSandwichList.Add(sandwich.Clone());
+
+            Console.WriteLine("\nDisplay interfaced values for different types of sandwiches:");
+            foreach (var sandwich in clonedSandwichList)
+                DisplayValues(sandwich);
         }
 
         // this method just makes it easier to display the sandwich data
-        public static void DisplayValues(Sandwich sandwich) =>
+        public static void DisplayValues(ISandwich sandwich) =>
             Console.WriteLine($"size: {sandwich.Size}, Lettuce: {sandwich.Internals.Lettuce}, Tomatoes: {sandwich.Internals.Tomatoes}, " +
                 $"Onions: {sandwich.Internals.Onions}, Ketchup: {sandwich.Internals.Ketchup}, Mustard: {sandwich.Internals.Mustard}, " +
                 $"Extra Meat: {sandwich.Internals.ExtraMeat}");
     }
 
-    // the sandwich model with a Clone method
-    public class Sandwich
+    public interface ISandwich
     {
-        public int Size;
-        public Internals Internals;
+        int Size { get; set; }
+        Internals Internals { get; set; }
+        ISandwich Clone();
+    }
 
+    // the sandwich model with a Clone method
+    public class Sandwich : ISandwich
+    {
+        public int Size { get; set; }
+        public Internals Internals { get; set; }
+
+        public Sandwich(Sandwich sandwich)
+        {
+            Size = sandwich.Size;
+            Internals = new Internals
+            {
+                Lettuce = sandwich.Internals.Lettuce,
+                Tomatoes = sandwich.Internals.Tomatoes,
+                Onions = sandwich.Internals.Onions,
+                Ketchup = sandwich.Internals.Ketchup,
+                Mustard = sandwich.Internals.Mustard,
+                ExtraMeat = sandwich.Internals.ExtraMeat,
+            };
+        }
         public Sandwich(int size, Internals internals)
         {
             Size = size;
@@ -65,21 +102,27 @@ namespace PrototypePattern
         }
 
         // Clone method
-        public virtual Sandwich Clone()
-        {
-            Sandwich clone = (Sandwich)MemberwiseClone();
-            clone.Internals = new Internals
-            {
-                Lettuce = Internals.Lettuce,
-                Tomatoes = Internals.Tomatoes,
-                Onions = Internals.Onions,
-                Ketchup = Internals.Ketchup,
-                Mustard = Internals.Mustard,
-                ExtraMeat = Internals.ExtraMeat,
-            };
+        public virtual ISandwich Clone() => new Sandwich(this);
+        
+    }
 
-            return clone;
+    public class SubSandwich : Sandwich
+    {
+        public string BreadType { get; set; }
+
+        public SubSandwich(SubSandwich sandwich)
+            : base(sandwich.Size, sandwich.Internals)
+        {
+            BreadType = sandwich.BreadType;
         }
+
+        public SubSandwich(int size, Internals internals, string breadType)
+            : base(size, internals)
+        {
+            BreadType = breadType;
+        }
+
+        public override ISandwich Clone() => new SubSandwich(this);
     }
 
     public class Internals

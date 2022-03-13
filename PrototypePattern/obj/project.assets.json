@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\hassa\\source\\repos\\PrototypePattern\\PrototypePattern.csproj",
+      "projectUniqueName": "C:\\Users\\hassa\\Desktop\\stuff\\PrototypePattern\\PrototypePattern\\PrototypePattern.csproj",
       "projectName": "PrototypePattern",
-      "projectPath": "C:\\Users\\hassa\\source\\repos\\PrototypePattern\\PrototypePattern.csproj",
+      "projectPath": "C:\\Users\\hassa\\Desktop\\stuff\\PrototypePattern\\PrototypePattern\\PrototypePattern.csproj",
       "packagesPath": "C:\\Users\\hassa\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\hassa\\source\\repos\\PrototypePattern\\obj\\",
+      "outputPath": "C:\\Users\\hassa\\Desktop\\stuff\\PrototypePattern\\PrototypePattern\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\hassa\\AppData\\Roaming\\NuGet\\NuGet.Config",
