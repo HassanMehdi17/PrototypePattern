@@ -1,0 +1,16 @@
+C:\Users\hassa\source\repos\PrototypePattern\bin\Debug\net5.0\PrototypePattern.exe
+C:\Users\hassa\source\repos\PrototypePattern\bin\Debug\net5.0\PrototypePattern.deps.json
+C:\Users\hassa\source\repos\PrototypePattern\bin\Debug\net5.0\PrototypePattern.runtimeconfig.json
+C:\Users\hassa\source\repos\PrototypePattern\bin\Debug\net5.0\PrototypePattern.runtimeconfig.dev.json
+C:\Users\hassa\source\repos\PrototypePattern\bin\Debug\net5.0\PrototypePattern.dll
+C:\Users\hassa\source\repos\PrototypePattern\bin\Debug\net5.0\ref\PrototypePattern.dll
+C:\Users\hassa\source\repos\PrototypePattern\bin\Debug\net5.0\PrototypePattern.pdb
+C:\Users\hassa\source\repos\PrototypePattern\obj\Debug\net5.0\PrototypePattern.csproj.AssemblyReference.cache
+C:\Users\hassa\source\repos\PrototypePattern\obj\Debug\net5.0\PrototypePattern.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hassa\source\repos\PrototypePattern\obj\Debug\net5.0\PrototypePattern.AssemblyInfoInputs.cache
+C:\Users\hassa\source\repos\PrototypePattern\obj\Debug\net5.0\PrototypePattern.AssemblyInfo.cs
+C:\Users\hassa\source\repos\PrototypePattern\obj\Debug\net5.0\PrototypePattern.csproj.CoreCompileInputs.cache
+C:\Users\hassa\source\repos\PrototypePattern\obj\Debug\net5.0\PrototypePattern.dll
+C:\Users\hassa\source\repos\PrototypePattern\obj\Debug\net5.0\ref\PrototypePattern.dll
+C:\Users\hassa\source\repos\PrototypePattern\obj\Debug\net5.0\PrototypePattern.pdb
+C:\Users\hassa\source\repos\PrototypePattern\obj\Debug\net5.0\PrototypePattern.genruntimeconfig.cache
